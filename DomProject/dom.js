@@ -18,10 +18,10 @@
 var headerTitle =document.getElementById('header-title');
 var header =document.getElementById('main-header');
 // console.log(headerTitle);
-// var title= document.getElementsByClassName('title');
+var title= document.getElementsByClassName('title');
 var bold= document.getElementById('add');
-// headerTitle.textContent = 'Hello';
-// headerTitle.innerText='GoodBye';
+headerTitle.textContent = 'Hello';
+headerTitle.innerText='GoodBye';
 // console.log(headerTitle.innerText);
 
 // headerTitle.innerHTML='<h3>Hello</h3>';
@@ -30,3 +30,14 @@ headerTitle.style.borderBottom ='solid 3px #000';
 header.style.borderBottom ='solid 3px #000';
 bold.style.color='green';
 bold.style.fontWeight='900';
+
+//Get element by classname
+var items= document.getElementsByClassName('list-group-item');
+console.log(items);
+items[1].textContent =' Hello 2';
+items[2].style.fontWeight='bold';
+items[2].style.backgroundColor='green';
+
+for(var i =0;i< items.length;i++){
+    items[i].style.fontWeight='bold';
+}
