@@ -69,5 +69,7 @@ submit.value= 'SEND';
 var item = document.querySelector('.list-group-item');
 item.style.color = 'red';
 
-var lastItem = document.querySelector('.list-group-item:last-child');
-lastItem.style.color='blue';
+var lastItem = document.querySelector('.list-group-item:nth-child(3)');
+lastItem.style.display='none';
+var lastItem = document.querySelector('.list-group-item:nth-child(odd)');
+lastItem.style.backgroundColor='green';
