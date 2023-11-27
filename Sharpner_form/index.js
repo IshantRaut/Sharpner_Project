@@ -8,9 +8,7 @@ const userList = document.querySelector('#users');
 document.addEventListener('DOMContentLoaded', () => {
   const users = JSON.parse(localStorage.getItem('users')) || [];
   users.forEach(user => {
-    const li = document.createElement('li');
-    li.appendChild(document.createTextNode(user));
-    userList.appendChild(li);
+    addUserToList(user);
   });
 });
 
@@ -21,36 +19,46 @@ function onSubmit(e) {
   e.preventDefault();
 
   if (nameInput.value === '' || emailInput.value === '') {
-    msg.classList.add('error');
-    msg.innerHTML = 'Please enter all fields';
-
-    // Remove error after 3 sec
-    setTimeout(() => msg.remove(), 3000);
+      displayMessage('Please enter all field','error');
   } else {
-    // Create new list item with user
-    const li = document.createElement('li');
-    const userDetails = `${nameInput.value} : ${emailInput.value}`;
-    li.appendChild(document.createTextNode(userDetails));
+    
+    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Append to UL
-    userList.appendChild(li);
+    // Add the new user details to the existing list
+    const newUser = { name: nameInput.value, email: emailInput.value };
+    users.push(newUser);
 
-    // Save user details to local storage
-    saveUserToLocalStorage(userDetails);
+    // Save the updated list back to local storage
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // Display the new user in the list
+    addUserToList(newUser);
 
     // Clear all fields
+    clearFields();
+
+}
+}
+
+
+function displayMessage(message, className){
+    msg.classList.add(className);
+    msg.innerHTML = message;
+
+    //Remove error after 3sec
+    setTimeout(() => {
+        msg.innerHTML='';
+        msg.classList.remove(className);
+    },3000);
+}
+function addUserToList(user) {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(`${user.name}: ${user.email}`));
+    userList.appendChild(li);
+  }
+  
+  function clearFields() {
     nameInput.value = '';
     emailInput.value = '';
   }
-}
 
-function saveUserToLocalStorage(userDetails) {
-  // Check if there are existing users in local storage
-  const users = JSON.parse(localStorage.getItem('users')) || [];
-
-  // Add the new user details
-  users.push(userDetails);
-
-  // Save the updated array back to local storage
-  localStorage.setItem('users', JSON.stringify(users));
-}
