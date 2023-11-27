@@ -1,44 +1,44 @@
+//Creating the variable
+
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 var filter = document.getElementById('filter');
+
+
 //Form submit event
 form.addEventListener('submit', addItem);
-
 itemList.addEventListener('click' ,removeItem);
-
 filter.addEventListener('keyup',filterItems);
-//Add item
 
+
+
+//Add item
 function addItem(e){
 e.preventDefault();
 
-//get inp7ut value
-
+//get Input value of Both the item
 var newItem = document.getElementById('item').value;
+var newItem2 = document.getElementById('item1').value;
+
 
 //Create new li element
 var li = document.createElement('li');
-
 li.className = 'list-group-item';
-// console.log(li);
+
 
 //add text node with input value
-
 li.appendChild(document.createTextNode(newItem));
+li.appendChild(document.createTextNode(" "));
+li.appendChild(document.createTextNode( newItem2 ));
 
 //create the delete button element
-
 var deleteBtn = document.createElement('button');
 
 //Add classes tod elet button
 deleteBtn.className='btn btn-danger btn-sm float-right delete ';
-
 deleteBtn.appendChild(document.createTextNode('x'));
-
 li.appendChild(deleteBtn);
 itemList.appendChild(li);
-
-
 }
 
 
@@ -52,22 +52,49 @@ function removeItem(e){
 }
 
 
-function filterItems(e){
+// function filterItems(e){
+    
+//     //convert text to lowercase
+//     var text = e.target.value.toLowerCase();
+//     var items = itemList.getElementsByTagName('li');
+    
+//     //Convert to an array
+//     Array.from(items).forEach(function(item, item1){
+//         var itemName = item.firstChild.textContent;
+//         if(itemName.toLowerCase().indexOf(text) != -1){
+//             item.style.display='block';
+//         }else{
+//             item.style.display='none';
+//         }
+     
+//     });
+// }
+
+//...
+
+function filterItems(e) {
     //convert text to lowercase
     var text = e.target.value.toLowerCase();
-
     var items = itemList.getElementsByTagName('li');
+
     //Convert to an array
-    Array.from(items).forEach(function(item){
-        var itemName = item.firstChild.textContent;
-        if(itemName.toLowerCase().indexOf(text) != -1){
-            item.style.display='block';
-        }else{
-            item.style.display='none';
+    Array.from(items).forEach(function (item) {
+        var item1 = item.childNodes[2]; // Get the third child node
+
+        // Check if the third child exists and has text content
+        var itemName = item1 && item1.textContent ? item.firstChild.textContent + " " + item1.textContent : item.firstChild.textContent;
+
+        if (itemName.toLowerCase().indexOf(text) != -1) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
         }
     });
-
 }
+
+//...
+
+
 // //EXAMINE THE DOCUMENT
 
 // // console.dir(document);
