@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+    
+         <h1 >Expense Tracker</h1>
+         <hr>
+        <form id="my-form" >
+            <div>
+                <label for="ExpenseAmount" class="form-label">Expense Amount :</label>
+                <div class="input-group">
+                    <div class="input-group-text">$</div>
+                    <input type="number" class="form-control" id="expamt" value="Enter amount" aria-required="false">
+                </div>
+            </div>
+               <br>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="desc"
+                     placeholder="Enter description here" required>
+                    <label for="Description" class="form-label">Enter Description :</label>
+               
+                </div>
+                
+                <div>
+                    <label for="category" class="form-label">Choose category: </label>
+             <select name="category" id="category" class="form-select">
+             <option value="Movie"selected="selected" >Movie</option>
+                <option value="Food">Food</option>
+                <option value="Fuel">Fuel</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Rent">Rent</option>
+                <option value="Elctricity bills">Electricity Bills</option>
+                </select>
+                </div>
+                <br>
+                <button id="butn" class="btn" >Submit</button>
+        </form>
+        <ul id="expitems">
+
+        </ul>
+
+
+
+     </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     <script src="app.js"></script>
+</body>
+</html>
