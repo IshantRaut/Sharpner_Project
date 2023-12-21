@@ -100,14 +100,14 @@ function clickHandler(event){
         if(confirm('Are you sure?')){
             var li=e.target.parentElement;
             var userId=li.id;
-        //     axios.delete(`https://crudcrud.com/api/ceedef30a56f407a81f17e898d0238bd/appointmentData/${userId}`)
-        // .then((response) => {
-        //   console.log(response);
+            axios.delete(`https://crudcrud.com/api/ceedef30a56f407a81f17e898d0238bd/appointmentData/${userId}`)
+        .then((response) => {
+          console.log(response);
           
-        // })
-        // .catch((error) => {
-        //   console.log(error);
-        // });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
         itemList.removeChild(li);
        
         }
@@ -122,14 +122,14 @@ function clickHandler(event){
     const [username, userEmail, userNumber] = userText.split('-');
         const userId=listItem.id;
     
-        // axios.delete(`https://crudcrud.com/api/ceedef30a56f407a81f17e898d0238bd/appointmentData/${userId}`)
-        // .then((response) => {
-        //   console.log(response);
-        //   itemList.removeChild(listItem);
-        // })
-        // .catch((error) => {
-        //   console.log(error);
-        // });
+        axios.delete(`https://crudcrud.com/api/ceedef30a56f407a81f17e898d0238bd/appointmentData/${userId}`)
+        .then((response) => {
+          console.log(response);
+          itemList.removeChild(listItem);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
         document.getElementById('name').value = username;
         document.getElementById('email').value = userEmail;
         document.getElementById('Phone').value = userNumber;
