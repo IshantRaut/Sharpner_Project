@@ -101,25 +101,23 @@ function clickHandler(event){
             var li=e.target.parentElement;
             var userId=li.id;
             axios.delete(`https://crudcrud.com/api/ceedef30a56f407a81f17e898d0238bd/appointmentData/${userId}`)
-        .then((response) => {
-          console.log(response);
-          
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-        itemList.removeChild(li);
-       
+            .then((response) => {
+              console.log(response);
+            })
+            .catch(error => {
+              console.log(error);
+            })
+          itemList.removeChild(li);
         }
-    }
+      }
     }
 
     function editItem(e){
       if(e.target.classList.contains('edit')){
          
-    const listItem = e.target.parentElement;
-    const userText = listItem.textContent;
-    const [username, userEmail, userNumber] = userText.split('-');
+        const listItem = e.target.parentElement;
+        const userText = listItem.textContent;
+        const [username, userEmail, userNumber] = userText.split('-');
         const userId=listItem.id;
     
         axios.delete(`https://crudcrud.com/api/ceedef30a56f407a81f17e898d0238bd/appointmentData/${userId}`)
