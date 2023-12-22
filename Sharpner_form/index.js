@@ -56,7 +56,7 @@ function clickHandler(event){
         username,
         useremail,
         usernumber
-      };
+    };
       const userJson = JSON.stringify(user);
 
       //post data into the crud server
@@ -92,7 +92,7 @@ function clickHandler(event){
 
       itemList.appendChild(li);
   
-    }
+}
    
     
     function removeItem(e){
